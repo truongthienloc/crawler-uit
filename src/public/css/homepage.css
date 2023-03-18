@@ -1,0 +1,47 @@
+.block-input {
+    width: 50%;
+    min-width: 500px;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.block-input-info {
+    margin-top: 10px;
+    min-width: 200px;
+    width: 50%;
+    /* padding: 5px; */
+    /* background-color: hsl(0, 0%, 84%);
+    border: 1px solid black; */
+}
+
+#button-add-info {
+    width: 3rem;
+    color: hsl(0, 0%, 60%);
+    font-size: 20px;
+    border: 2px solid currentColor;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#button-add-info:hover {
+    color: hsl(0, 0%, 40%);
+}
+
+.input-file {
+    margin-top: 10px;
+    min-width: 200px;
+    width: 50%;
+    padding: 5px;
+    background-color: hsl(0, 0%, 84%);
+    border: 1px solid black;
+}
+
+.input-info {
+    height: 30px;
+    border: 1px solid black;
+    /* outline: aqua solid 1px; */
+    font-size: 15px;
+}
+
+.remove-info {
+}
