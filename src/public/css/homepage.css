@@ -1,17 +1,32 @@
+.form-search {
+    position: relative;
+    margin-top: 5px;
+    height: auto;
+    max-height: calc(100% - 100px);
+    background-color: white;
+    width: 25%;
+    padding: 25px;
+    box-shadow: 0px 0px 20px hsl(0, 0%, 60%);
+}
+
+.form-search label {
+    font-size: larger;
+}
+
 .block-input {
-    width: 50%;
-    min-width: 500px;
-    background-color: transparent;
+    /* background-color: aqua; */
     padding: 5px;
 }
 
 .block-input-info {
     margin-top: 10px;
-    min-width: 200px;
-    width: 50%;
     /* padding: 5px; */
     /* background-color: hsl(0, 0%, 84%);
     border: 1px solid black; */
+}
+
+.input-info:hover {
+    outline: 2px black auto;
 }
 
 #button-add-info {
@@ -28,9 +43,8 @@
 }
 
 .input-file {
-    margin-top: 10px;
-    min-width: 200px;
-    width: 50%;
+    height: 35px;
+    margin-top: 5px;
     padding: 5px;
     background-color: hsl(0, 0%, 84%);
     border: 1px solid black;
@@ -44,4 +58,30 @@
 }
 
 .remove-info {
+    border: 1px solid black;
+    border-left: 0px;
+}
+
+.remove-info:hover {
+    color: red;
+    border: 1px solid red;
+}
+
+.block-submit {
+    margin: 20px 0px;
+}
+
+#submit {
+    border: 0px;
+    min-width: 50px;
+    width: 100%;
+    background-color: hsl(199, 100%, 70%);
+    color: #fff;
+    font-weight: bold;
+    height: 35px;
+    transition: all 1 ease-in-out;
+}
+
+#submit:hover {
+    background-color: hsl(199, 100%, 50%);
 }

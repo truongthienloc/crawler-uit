@@ -1,20 +1,29 @@
-<div class="container flex-col gap-sm item-center">
-    <div class="block-input flex-1 overflow">
+<div class="wrapper flex-col primary-bg-color">
+    <div class="block-input flex-col flex-1 item-center justify-center wrapper">
         <form action="" class="form-search flex-col gap-sm">
+            <label for="">Tự động nhập bằng file (.txt, .xlsx)</label>
             <input type="file" class="input-file" />
-            <div class="container flex-row block-input-info">
-                <input type="text" class="flex-1 input-info">
-                <button class="remove-info">
-                    <i class="fa fa-close"></i>
-                </button>
+            <label>Thông tin tìm kiếm</label>
+            <hr>
+            <div id="block-contain-info" class="overflow">
+                <div class="container flex-row block-input-info">
+                    <input type="text" class="flex-1 input-info">
+                    <button class="remove-info">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
             </div>
             <button id="button-add-info">
                 <i class="fa fa-plus"></i>
             </button>
+            <div class="block-submit">
+                <button id="submit">SEARCH</button>
+            </div>
         </form>
     </div>
 
-    <div class="block-result flex-1">
+    <!-- <div class="block-result flex-1">
 
-    </div>
+    </div> -->
 </div>
+<script src="/scripts/homepage.js"></script>
