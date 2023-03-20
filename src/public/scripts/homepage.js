@@ -1,8 +1,20 @@
 const buttonAddInfo = document.querySelector('#button-add-info');
 const blockContainInfo = document.querySelector('#block-contain-info');
 
+const handleClickRemoveInfo = (e) => {
+    e.preventDefault();
+
+    const buttonRemove = e.target;
+    const blockInputInfo = buttonRemove.closest('.block-input-info');
+    blockInputInfo.remove();
+};
+
+const buttonRemoveInfos = document.querySelector('.remove-info');
+buttonRemoveInfos.addEventListener('click', handleClickRemoveInfo);
+
 buttonAddInfo.addEventListener('click', (e) => {
     e.preventDefault();
+    
     const blockInputInfo = document.createElement('div');
     const inputInfo = document.createElement('input');
     const buttonRemove = document.createElement('button');
@@ -13,6 +25,8 @@ buttonAddInfo.addEventListener('click', (e) => {
     inputInfo.classList.add('flex-1', 'input-info');
     inputInfo.setAttribute('type', 'text');
     blockInputInfo.classList.add('container', 'flex-row', 'block-input-info');
+
+    buttonRemove.addEventListener('click', handleClickRemoveInfo);
 
     buttonRemove.appendChild(icon);
     blockInputInfo.appendChild(inputInfo);
