@@ -1,4 +1,4 @@
-import Crawler from "crawler";
+import Crawler from 'crawler';
 
 export default class PromiseCrawler {
     constructor() {
@@ -12,22 +12,21 @@ export default class PromiseCrawler {
                 } else {
                     res.options.npolisResolve(res);
                 }
-            }
-        });;
+            },
+        });
     }
 
     /**
-     * 
-     * @param {string | Crawler.CrawlerRequestOptions} urisOrOptions 
+     *
+     * @param {string | Crawler.CrawlerRequestOptions} urisOrOptions
      * @returns {Promise<Crawler.CrawlerRequestResponse>}
      */
     queue(urisOrOptions) {
         return new Promise(async (resolve, reject) => {
             let options = {};
-            if (typeof(urisOrOptions) === "string") {
+            if (typeof urisOrOptions === 'string') {
                 options.uri = urisOrOptions;
-            }
-            else {
+            } else {
                 options = urisOrOptions;
             }
 

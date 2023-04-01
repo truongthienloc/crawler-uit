@@ -14,7 +14,7 @@ buttonRemoveInfos.addEventListener('click', handleClickRemoveInfo);
 
 buttonAddInfo.addEventListener('click', (e) => {
     e.preventDefault();
-    
+
     const blockInputInfo = document.createElement('div');
     const inputInfo = document.createElement('input');
     const buttonRemove = document.createElement('button');

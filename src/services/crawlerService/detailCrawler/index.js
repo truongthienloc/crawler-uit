@@ -1,27 +1,32 @@
-import { PromiseCrawler } from "..";
+import { PromiseCrawler } from '..';
 
 const detailCrawler = new PromiseCrawler();
 
+/**
+ *
+ * @param {string} uri
+ * @returns {Promise<{className: string, date: string}>}
+ */
 export const getDetail = (uri) => {
     return new Promise(async (resolve, reject) => {
         try {
             const res = await detailCrawler.queue(uri);
             const $ = res.$;
-            const result = $(".field-item > p > strong");
+            const result = $('.field-item > p > strong');
             const contents = result.contents();
 
             const fullDate = contents[contents.length - 1].data;
-            const date = fullDate.split(",")[1].split(" ")[2];
+            const date = fullDate.split(',')[1].split(' ')[2];
 
             const data = {
                 className: contents[3].data,
-                date: date
+                date: date,
             };
-            
+
             // console.log("data: ", data);
             resolve(data);
         } catch (err) {
             reject(err);
         }
-    })
-}
+    });
+};
