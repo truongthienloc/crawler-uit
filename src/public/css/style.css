@@ -60,3 +60,7 @@ hr {
     justify-content: center;
     align-items: center;
 }
+
+.liner-gradient {
+    background: linear-gradient(to bottom right, #6691ff 15%, #fc813d);
+}

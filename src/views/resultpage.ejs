@@ -1,0 +1,23 @@
+<div class="wrapper flex-col item-center liner-gradient"> 
+    <div class="result flex-row">
+        <% result.forEach(function(data){ %>
+            <div class="result-cart">
+                <div class="result-cart__title">
+                    <%= data.title %>
+                </div>
+                <div class="result-cart__class-name">
+                    <span>Lớp: </span>
+                    <strong>
+                        <%= data.className %>
+                    </strong>
+                </div>
+                <div class="result-cart__date">
+                    <span>Ngày: </span>
+                    <strong>
+                        <%= data.date %>
+                    </strong>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>

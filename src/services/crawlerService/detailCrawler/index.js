@@ -12,6 +12,7 @@ export const getDetail = (uri) => {
         try {
             const res = await detailCrawler.queue(uri);
             const $ = res.$;
+            const title = $('#page-title');
             const result = $('.field-item > p > strong');
             const contents = result.contents();
 
@@ -19,6 +20,7 @@ export const getDetail = (uri) => {
             const date = fullDate.split(',')[1].split(' ')[2];
 
             const data = {
+                title: title.text(),
                 className: contents[3].data,
                 date: date,
             };
