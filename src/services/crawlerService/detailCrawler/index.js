@@ -5,11 +5,14 @@ const detailCrawler = new PromiseCrawler();
 /**
  *
  * @param {string} uri
- * @returns {Promise<{className: string, date: string}>}
+ * @returns {Promise<{className: string, date: string} | undefined>}
  */
 export const getDetail = (uri) => {
     return new Promise(async (resolve, reject) => {
         try {
+            if (!uri.includes('https://student.uit.edu.vn/node/')) {
+                resolve(undefined);
+            }
             const res = await detailCrawler.queue(uri);
             const $ = res.$;
             const title = $('#page-title');

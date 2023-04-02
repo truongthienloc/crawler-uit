@@ -1,17 +1,17 @@
 <div class="wrapper flex-col item-center liner-gradient"> 
     <div class="result flex-row">
-        <% result.forEach(function(data){ %>
-            <div class="result-cart">
-                <div class="result-cart__title">
+        <% result.forEach(function(data) { %>
+            <div class="result-item">
+                <div class="result-item__title">
                     <%= data.title %>
                 </div>
-                <div class="result-cart__class-name">
+                <div class="result-item__class-name">
                     <span>Lớp: </span>
                     <strong>
                         <%= data.className %>
                     </strong>
                 </div>
-                <div class="result-cart__date">
+                <div class="result-item__date">
                     <span>Ngày: </span>
                     <strong>
                         <%= data.date %>

@@ -1,5 +1,6 @@
 const buttonAddInfo = document.querySelector('#button-add-info');
 const blockContainInfo = document.querySelector('#block-contain-info');
+const submitButton = document.querySelector('#submit');
 
 const handleClickRemoveInfo = (e) => {
     e.preventDefault();
@@ -9,10 +10,7 @@ const handleClickRemoveInfo = (e) => {
     blockInputInfo.remove();
 };
 
-const buttonRemoveInfos = document.querySelector('.remove-info');
-buttonRemoveInfos.addEventListener('click', handleClickRemoveInfo);
-
-buttonAddInfo.addEventListener('click', (e) => {
+const handleAddInfoInput = (e) => {
     e.preventDefault();
 
     const blockInputInfo = document.createElement('div');
@@ -34,4 +32,30 @@ buttonAddInfo.addEventListener('click', (e) => {
 
     blockContainInfo.appendChild(blockInputInfo);
     inputInfo.focus();
+};
+
+window.addEventListener('load', handleAddInfoInput);
+
+buttonAddInfo.addEventListener('click', handleAddInfoInput);
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    /** @type {HTMLInputElement[]} */
+    const inputInfos = document.querySelectorAll('.input-info');
+
+    const infoArr = [];
+    for (const inputInfo of inputInfos) {
+        const value = inputInfo.value;
+
+        infoArr.push(value);
+    }
+
+    localStorage.setItem('info-search', JSON.stringify(infoArr));
+
+    // TODO: Add notice before redirect
+
+    const href = window.location.origin + '/result?q=' + infoArr.join(',');
+    window.location.replace(href);
 });
+
+// TODO: Add Press Enter Listen
