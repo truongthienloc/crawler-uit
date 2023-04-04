@@ -22,7 +22,7 @@ export const getResultPage = async (req, res) => {
 
             for (const res of results) {
                 const data = await detailCrawler.getDetail(res);
-                
+
                 if (!data) {
                     continue;
                 }

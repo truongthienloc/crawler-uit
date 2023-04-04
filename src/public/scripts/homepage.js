@@ -10,7 +10,7 @@ const handleClickRemoveInfo = (e) => {
     blockInputInfo.remove();
 };
 
-const handleAddInfoInput = (e) => {
+const handleAddInfoInput = (e, value = '') => {
     e.preventDefault();
 
     const blockInputInfo = document.createElement('div');
@@ -21,10 +21,11 @@ const handleAddInfoInput = (e) => {
     icon.classList.add('fa', 'fa-close');
     buttonRemove.classList.add('remove-info');
     inputInfo.classList.add('flex-1', 'input-info');
-    inputInfo.setAttribute('type', 'text');
     blockInputInfo.classList.add('container', 'flex-row', 'block-input-info');
 
     buttonRemove.addEventListener('click', handleClickRemoveInfo);
+    inputInfo.setAttribute('type', 'text');
+    inputInfo.setAttribute('value', value);
 
     buttonRemove.appendChild(icon);
     blockInputInfo.appendChild(inputInfo);
@@ -34,10 +35,7 @@ const handleAddInfoInput = (e) => {
     inputInfo.focus();
 };
 
-window.addEventListener('load', handleAddInfoInput);
-
-buttonAddInfo.addEventListener('click', handleAddInfoInput);
-submitButton.addEventListener('click', (e) => {
+const handleSubmitInfo = (e) => {
     e.preventDefault();
 
     /** @type {HTMLInputElement[]} */
@@ -56,6 +54,26 @@ submitButton.addEventListener('click', (e) => {
 
     const href = window.location.origin + '/result?q=' + infoArr.join(',');
     window.location.replace(href);
+};
+
+window.addEventListener('load', (e) => {
+    const prevInfoSearch = JSON.parse(localStorage.getItem('info-search'));
+
+    if (!prevInfoSearch) {
+        handleAddInfoInput(e);
+        return;
+    }
+
+    prevInfoSearch.forEach((value) => handleAddInfoInput(e, value));
 });
 
+buttonAddInfo.addEventListener('click', handleAddInfoInput);
+submitButton.addEventListener('click', handleSubmitInfo);
+
 // TODO: Add Press Enter Listen
+window.addEventListener('keydown', (e) => {
+    // console.log("event: ", e);
+    if (e.key === 'Enter') {
+        handleSubmitInfo(e);
+    }
+});
